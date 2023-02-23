@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -12,8 +13,9 @@ export class GifsService {
     return [...this._historial];
   }
 
+  constructor( private http: HttpClient) {}
 
-  async buscarGifs( query: string = ''){
+ buscarGifs( query: string = ''){
     
     query = query.trim().toLocaleLowerCase();
 
@@ -24,9 +26,11 @@ export class GifsService {
 
     }
 
-    const resp = await fetch('http://api.giphy.com/v1/gifs/search?api_key=p3xdPHblgT9EcERTfO0MzLaIDBHnzB26&q=Dragon ball')
-    const data = await resp.json();
-    console.log(data);
+    this.http.get('https://api.giphy.com/v1/gifs/search?api_key=p3xdPHblgT9EcERTfO0MzLaIDBHnzB26&q=Dragon ball')
+    .subscribe( (response:any) => {
+      console.log(response.data);
+    } )
+
   }
 
 }

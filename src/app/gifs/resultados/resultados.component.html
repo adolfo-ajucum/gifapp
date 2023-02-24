@@ -1,1 +1,23 @@
-Reprehenderit id non adipisicing dolore proident. Velit consequat duis proident consequat sunt consectetur et consectetur proident. Tempor officia dolor culpa ut velit adipisicing incididunt adipisicing ipsum quis incididunt labore fugiat incididunt. Amet eu reprehenderit ea excepteur do in. Dolore enim nulla voluptate nostrud ipsum id. Lorem exercitation laborum voluptate ut mollit voluptate sunt enim eu consectetur quis exercitation nisi Lorem.
+<!--ul>
+    <li *ngFor="let gif of resultados">
+        {{ gif.title}}
+    </li>
+</ul-->
+
+<div class="row">
+    <div *ngFor="let gif of resultados"
+        class="col-md-4 col-sm-6">
+        <div class="card">
+            <img [src]="gif.images.downsized_medium.url" 
+                 [alt]="gif.title"
+                 class="card-img-top"            
+                 >
+            <div class="card-body">
+                <p class="card-tex">
+                 <!-- {{ gif.images.downsized_medium.url }}--> 
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
